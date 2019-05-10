@@ -1,0 +1,42 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.my_header{
+    width:100%;
+    height :100vh;
+    background: linear-gradient(58deg, rgb(0, 255, 98), rgb(85, 194, 21));
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100% )
+}
+
+nav{width:100%; height:100px;  display:flex; color:white;}
+
+.logo{ width:50%; height:100px;}
+
+.logo h1{
+    line-height: 100px;
+    padding-left: 50px;
+    text-transform: uppercase;
+
+}
+
+.menu{
+    width:50%;
+    height:100px;
+
+}
+
+.menu ul{
+    width: 100%;
+    height:100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.menu ul li{
+    list-style: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
