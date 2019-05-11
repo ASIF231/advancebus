@@ -1,4 +1,4 @@
-*{margin: 0; padding: 0; box-sizing: border-box;}
+*{margin: 0; padding: 0; box-sizing: border-box; }
 
 .my_header{
     width:100%;
@@ -55,7 +55,7 @@ section{
 
 .left img{
     width: 600px;
-    height:500px;
+    height:450px;
 }
 
 .right{
@@ -76,8 +76,27 @@ section{
     background: linear-gradient(58deg, rgb(0, 255, 98), rgb(85, 194, 21));
     padding :20px 35px;
     border-radius: 4px;
+    position: relative;
 }
 
 .btnsearch:hover{
     background:  linear-gradient(58deg,rgb(85, 194, 21), rgb(0, 255, 98) );
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=text]:focus {
+    background-color: lightblue;
+  }
+
+  .style {
+    border: 0 solid black;
+    padding-top: 22px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
 }
