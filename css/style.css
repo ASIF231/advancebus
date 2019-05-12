@@ -83,35 +83,35 @@ section{
     background:  linear-gradient(58deg,rgb(85, 194, 21), rgb(0, 255, 98) );
 }
 
-input[type=text] {
+.style {
+ border: 15px;
+}
+.style:value{
+    color:blue;
+}
+
+.fplace {
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-  }
-
-input[type=text]:focus {
-    margin:50px;
-    border-radius: 10px;
-    background:linear-gradient(58deg,rgb(85, 194, 21), rgb(0, 255, 98) );;
-  } 
-
-  .style {
-  border-collapse: collapse;
-}
-.style:value{
-    color: transparent;
-}
-
-.fplace , .tplace{
-    margin:50px;
     border-radius: 10px;
     background-color: transparent;
     text-transform: uppercase;
-    /* display: flex;  */
-    /* position:; */
+    position: relative;
+}
+.tplace{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: transparent;
+    text-transform: uppercase;
+    position: relative;
 }
 .date{
+    
     margin:50px;
     border-radius: 10px;
     background-color: transparent;
@@ -125,6 +125,12 @@ a{
     color: white;
     font-size: 15px;
 }
+
+/* input[type=text]:focus {
+    margin:50px;
+    border-radius: 10px;
+    background:linear-gradient(58deg,rgb(85, 194, 21), rgb(0, 255, 98) );;
+  }  */
 
 
 
