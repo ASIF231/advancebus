@@ -36,11 +36,11 @@
                    <input type="text" name="to_place" value="From" data-message="Please Enter destiny city" autocomplete="off" class="tplace">
                 </div> 
                 <div>
-                   <input type="date" name="date" class="date" value="Travel Date" value="f1()">
+                   <input type="date"  class="date" id="mydate" value="Travel Date" >
                  </div>
                  
                  <div> 
-                    <input type="button" value="SEARCH" class="btnsearch" >
+                    <input type="button" value="SEARCH"  class="btnsearch" onclick="my1()">
                   <div>
             </form>
 
