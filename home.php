@@ -1,9 +1,14 @@
+<?php
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
    
     <title>Book My bus</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"  href="css/style.css">
 
 </head>
 <body>
@@ -14,10 +19,10 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li>HOME</li>
-                    <li>ABOUT</li>
-                    <li>CONTACT US</li>
-                    <li>LOGIN</li>
+                    <li><a href="home.php" class="a">HOME</a></li>
+                    <li><a href="about.php">ABOUT</a></li>
+                    <li><a href="contact.php">CONTACT US</a></li>
+                    <li><a href="login.php">LOGIN</a></li>
                 </ul>
             </div>
         </nav>
