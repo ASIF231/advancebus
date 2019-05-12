@@ -89,8 +89,11 @@ input[type=text] {
     margin: 8px 0;
     box-sizing: border-box;
   }
-   input[type=text]:focus {
-   
+
+input[type=text]:focus {
+    margin:50px;
+    border-radius: 10px;
+    background:linear-gradient(58deg,rgb(85, 194, 21), rgb(0, 255, 98) );;
   } 
 
   .style {
