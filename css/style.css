@@ -89,14 +89,42 @@ input[type=text] {
     margin: 8px 0;
     box-sizing: border-box;
   }
-  input[type=text]:focus {
-    background-color: lightblue;
-  }
+   input[type=text]:focus {
+   
+  } 
 
   .style {
-    border: 0 solid black;
-    padding-top: 22px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+  border-collapse: collapse;
 }
+.style:value{
+    color: transparent;
+}
+
+.fplace , .tplace{
+    margin:50px;
+    border-radius: 10px;
+    background-color: transparent;
+    text-transform: uppercase;
+    /* display: flex;  */
+    position: relative;
+}
+.date{
+    margin:50px;
+    border-radius: 10px;
+    background-color: transparent;
+    text-transform: uppercase;
+    /* display: flex;  */
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+

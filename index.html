@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
    
-    <title>Document</title>
+    <title>Book My bus</title>
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <header class="my_header">
@@ -26,16 +27,28 @@
             </div>
 
             <div class="right">
-                <form action="a.php" method="post" class="style">
-                <input type="text" name="from_place"><br>
-                <input type="text" name="to_place" ><br> <br>
-                <input type="date" name="date"><br> <br>
-                <input type="button" value="SEARCH" class="btnsearch">
-                </form>
+             <form action="a.php" method="post" class="style">
+                <div>
+                  <input type="text" name="from_place" data-message="Please Enter Origin city" autocomplete="off" class="fplace" value="To">
+                </div>
+                
+                <div>  
+                   <input type="text" name="to_place" value="From" data-message="Please Enter destiny city" autocomplete="off" class="tplace">
+                </div> 
+                <div>
+                   <input type="date" name="date" class="date" value="Travel Date" value="f1()">
+                 </div>
+                 
+                 <div> 
+                    <input type="button" value="SEARCH" class="btnsearch" >
+                  <div>
+            </form>
+
 
             </div>
         </section>
     </header>
-    
+    <script type="text/javascript" src="js/myjs.js"></script>
 </body>
+
 </html>
