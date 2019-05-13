@@ -1,4 +1,7 @@
+<?php
 
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +46,7 @@
                  </div>
 
                  <div>
-                   <p style="color:black;">Traveller(s)</p>
+                   <p style="color:black;">Seats</p>
                     <select class="npas">
                <!-- <option value="">No. of Passenger</option> -->
                         <option value="1">1</option>
