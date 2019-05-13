@@ -29,17 +29,31 @@
             </div>
 
             <div class="right">
-             <form action="a.php" method="post" class="style">
+             <form action="search.php" method="post" class="style">
                 <div>
-                  <input type="text" name="from_place" data-message="Please Enter Origin city" autocomplete="off" class="fplace" value="To">
+                  <input type="text" name="from_place" data-message="Please Enter Origin city" autocomplete="off" class="fplace" placeholder="FROM">
                 </div>
                 
                 <div>  
-                   <input type="text" name="to_place" value="From" data-message="Please Enter destiny city" autocomplete="off" class="tplace">
+                   <input type="text" name="to_place" placeholder="TO" data-message="Please Enter destiny city" autocomplete="off" class="tplace">
                 </div> 
-                <div>
-                   <input type="date" name="date" class="date" value="Travel Date" value="f1()">
+                <div class="dp">
+                    <!-- journy date :- -->
+                    <input type="date" name="date" class="date" v placeholder="Journy Date">
                  </div>
+
+                 <div>
+                   <p style="color:black;">Traveller(s)</p>
+                    <select class="npas">
+               <!-- <option value="">No. of Passenger</option> -->
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                     </select>
+            </div>
                  
                  <div> 
                     <input type="button" value="SEARCH" class="btnsearch" >
@@ -50,7 +64,7 @@
             </div>
         </section>
     </header>
-    <script type="text/javascript" src="js/myjs.js"></script>
+    <!-- <script type="text/javascript" src="js/myjs.js"></script> -->
 </body>
 
 </html>

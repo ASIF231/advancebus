@@ -133,6 +133,23 @@ a{
   }  */
 
 
+.npas{
+    margin:50px;
+    border-radius: 10px;
+    background-color: transparent;
+    text-transform: uppercase;
+    /* display: flex;  */
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
 
 
 
