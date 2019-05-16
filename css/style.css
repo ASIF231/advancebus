@@ -32,7 +32,7 @@ nav{
 
 .menu{
     float:right;
-    margin-top:40px;
+    margin-top:30px;
 
 }
 
@@ -181,6 +181,11 @@ section{
     .container {
       max-width: 540px;
     }
+    
+/* .left img{
+  width: 300px;
+  height:auto; */
+
   }
   
   @media (min-width: 768px) {
@@ -201,6 +206,42 @@ section{
     }
   }
 
+  .dropbtn {
+    background-color: transparent;
+    text-transform: uppercase;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border:transparent;
+  }
+  
+  .dropdown {
+    position: relative;
+    /* display: inline-block; */
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #b83131;
+    min-width: 160px;
+    
+    background: linear-gradient(58deg, rgb(0, 255, 98), rgb(115, 219, 54));
+    z-index: 1;
+  }
+  
+  .dropdown-content a{
+    color: rgb(104, 58, 58);
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background:  linear-gradient(58deg,rgb(85, 194, 21), rgb(0, 255, 98) );}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
 
 
 
