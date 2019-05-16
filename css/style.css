@@ -1,30 +1,42 @@
 *{padding:0; margin:0;  box-sizing: border-box;}
-
+body{
+    color:white;
+    font-size: 20px;
+    overflow-x: hidden;
+}
 .my_header{
-    width:100%;
+    
     height :100vh;
+    background-position:center;
     background: linear-gradient(58deg, rgb(0, 255, 98), rgb(115, 219, 54));
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100% )
 }
 
-nav{width:100%; height:100px;  display:flex; color:white;}
-
-.logo{ width:50%; height:100px;}
+/* nav{width:100%; height:100px;  display:flex; color:white;} */
+nav{
+    max-width: 1180px;
+    margin :0 auto;
+}
+.logo{ 
+     height:120px;
+     width: auto;
+     float:left;
+}
 
 .logo h1{
     line-height: 100px;
-    padding-left: 50px;
+    /* padding-left: 50px; */
     text-transform: uppercase;
 
 }
 
 .menu{
-    width:50%;
-    height:100px;
+    float:right;
+    margin-top:40px;
 
 }
 
-.menu ul{
+/* .menu ul{
     width: 100%;
     height:100px;
     display: flex;
@@ -32,21 +44,35 @@ nav{width:100%; height:100px;  display:flex; color:white;}
     justify-content: space-around;
     align-items: center;
 
-}
+} */
 
 .menu ul li{
+    display: inline-block;
     list-style: none;
-    font-size: 12px;
+    font-size: 100%;
+    margin-left: 65px;;
     font-weight: bold;
     text-transform: uppercase;
 }
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 90%;
+    font-weight: 100;
+}
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+  
 
 section{
     display: flex;
 }
 
 .left{
-    width: 45%;
+    max-width: 50%;
     height:auto;
     overflow:hidden;
     margin-top: 20px;
@@ -55,18 +81,17 @@ section{
 
 .left img{
     width: 600px;
-    height:450px;
+    height:auto;
 }
 
 .right{
+    overflow: hidden;
     width: 50%;
-    height:300px;
+    height:auto;
     color:white;
-    margin-top:80px;
-    padding :40px;
-    
+    margin-top:30px;
+    /* padding :40px; */
     text-align: center;
-
 }
 
 .btnsearch{
@@ -122,11 +147,7 @@ section{
     position: relative;
 }
 
-a{
-    text-decoration: none;
-    color: white;
-    font-size: 15px;
-}
+
 
 /* input[type=text]:focus {
     margin:50px;
@@ -148,6 +169,37 @@ a{
 }
 
 
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+@media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
 
 
 
