@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="css/bootstrap.css">
-    <title>Login Customer</title>
+     <link rel="stylesheet" href="css/style.css">
+    <title>Agent Customer</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="my_header">
     <nav>
+        <div class="clearfix">
         <div class="logo">
             <h1>Online bus reservation</h1>
         </div>
         <div class="menu">
             <ul>
-                <li><a href="home.php" class="a">HOME</a></li>
+                <li><a href="home.html" class="a">HOME</a></li>
                 <li><a href="about.php">ABOUT</a></li>
                 <li><a href="contact.php">CONTACT US</a></li>
-                <li><a href="login.php">LOGIN</a></li>
+                <li><div class="dropdown">
+                    <button class="dropbtn">LOGIN</button>
+                    <div class="dropdown-content">
+                      <a href="custlogin.html">AS CUSTOMER</a>
+                      <a href="agentlogin.html">AS AGENT</a>
+                    </div>
+                  </div></li>
             </ul>
+        </div>
         </div>
     </nav>
     <section>
@@ -29,7 +38,8 @@
         <div class="right">
           <div class="container">
             <form action="welcome.php">
-              <div class="form-group">
+             
+                <div class="form-group">
                 <label for="exampleInputEmail1" >Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>

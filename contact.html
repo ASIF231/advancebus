@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact book My Bus</title>
     <link rel="stylesheet"  href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -19,7 +20,13 @@
                     <li><a href="home.html" class="a">HOME</a></li>
                     <li><a href="about.php">ABOUT</a></li>
                     <li><a href="contact.php">CONTACT US</a></li>
-                    <li><a href="login.php">LOGIN</a></li>
+                    <li><div class="dropdown">
+                        <button class="dropbtn">LOGIN</button>
+                        <div class="dropdown-content">
+                          <a href="custlogin.html">AS CUSTOMER</a>
+                          <a href="agentlogin.html">AS AGENT</a>
+                        </div>
+                      </div></li>
                 </ul>
             </div>
         </div>
@@ -31,37 +38,28 @@
 
             <div class="right">
                 <div class="container">
-                  <form action="search.php" method="post" class="style">
-                <div>
-                  <input type="text" name="from_place" data-message="Please Enter Origin city" autocomplete="off" class="fplace" placeholder="FROM">
-                </div>
-                
-                <div>  
-                   <input type="text" name="to_place" placeholder="TO" data-message="Please Enter destiny city" autocomplete="off" class="tplace">
-                </div> 
-                <div >
-                    <!-- journy date :- -->
-                    <input type="date" name="date" class="date" v placeholder="Journy Date">
-                 </div>
-
-                     <div>
-                   <p style="color:black;">Seats</p>
-                    <select class="npas">
-                        <!-- <option value="">No. of Passenger</option> -->
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                     </select>
-                    </div>
-                 
-                     <div> 
-                         <input type="button" value="SEARCH" class="btnsearch" >
-                     </div>
+                 <form action="welcome.php">
+                    <div class="form-group">
+                        <label>Phone No</label>
+                        <input type="text" class="form-control" placeholder="Phone No without countary code" maxlength="10" minlength="10">
+                    </div>         
+                    <div class="form-group">
+                                   <label for="exampleInputEmail1" >Email address</label>
+                                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                 </div>
+                                
+                                 <div class="form-group">
+                                   <label for="exampleInputPassword1">Password</label>
+                                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                 </div>
+                                
+                                 <div class="form-group form-check">
+                                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                   <label class="form-check-label" for="exampleCheck1" >Check me out</label>
+                                 </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
-
             </div>
             </div>
         </section>
