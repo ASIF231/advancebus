@@ -13,6 +13,14 @@ body{
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100% )
 }
 
+.header_signup{
+    
+  height :100%;
+  background-position:center;
+  background: linear-gradient(58deg, rgb(0, 255, 98), rgb(115, 219, 54));
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100% )
+}
+
 /* nav{width:100%; height:100px;  display:flex; color:white;} */
 nav{
     max-width: 1180px;
