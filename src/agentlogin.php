@@ -1,8 +1,8 @@
 <?php
 require_once "config.php";
 
-$username = $password = $agentid;
-$username_err = $password_err = $agentid_err;
+$username = $password = $agentid ="";
+$username_err = $password_err = $agentid_err  ="";
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
   // check username
@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="../css/style.css">
     <title>Agent Login
     </title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </div>
         <div class="menu">
             <ul>
-                <li><a href="home.html" class="a">HOME</a></li>
+                <li><a href="../home.html" class="a">HOME</a></li>
                 <li><a href="about.php">ABOUT</a></li>
                 <li><a href="contact.php">CONTACT US</a></li>
                 <li><div class="dropdown">
@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     </nav>
     <section>
         <div class="left">
-                 <img src="img\bus.png" >
+                 <img src="..\img\bus.png" >
         </div>
 
         <div class="right">
@@ -74,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
               <button type="submit" class="btn btnsearch">Submit</button>
             </form>
             <div class="form-group">
-              If Not have Account<a href="agentsign.html"> click here </a> to signup
+              If Not have Account<a href="agentsign.php"> click here </a> to signup
             </div>
             </div>
            

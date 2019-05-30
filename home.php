@@ -18,13 +18,13 @@
             <div class="menu">
                 <ul>
                     <li><a href="home.html" class="a">HOME</a></li>
-                    <li><a href="about.php">ABOUT</a></li>
-                    <li><a href="contact.php">CONTACT US</a></li>
+                    <li><a href="src\about.php">ABOUT</a></li>
+                    <li><a href="src\contact.php">CONTACT US</a></li>
                     <li><div class="dropdown">
                         <button class="dropbtn">LOGIN</button>
                         <div class="dropdown-content">
-                          <a href="custlogin.html">AS CUSTOMER</a>
-                          <a href="agentlogin.html">AS AGENT</a>
+                          <a href="src\custlogin.php">AS CUSTOMER</a>
+                          <a href="src\agentlogin.php">AS AGENT</a>
                         </div>
                       </div></li>
                 </ul>

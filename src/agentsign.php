@@ -1,8 +1,8 @@
 <?php
 require_once "config.php";
 
-$agentid = $agentname = $email = $mob = $city = $password = $conpass = "";
-$agentid_err = $agentname_err = $email_err = $mob_err = $city_err = $password_err = $conpass_err = "";
+$agentid = $agentname = $email = $mobile = $city = $password = $conpass = "";
+$agentid_err = $agentname_err = $email_err = $mobile_err = $city_err = $password_err = $conpass_err = "";
 
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -41,17 +41,44 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 mysqli_stmt_close($stmt);
 
 // check Agent name
-// if(empty(trim($_POST['agent']))){
-//   $agentname_err ="Agent Name Cannot Be Blank";
-// }
+if(empty(trim($_POST['agentname']))){
+  $agentname_err ="Agent Name Cannot Be Blank";
+}
+else
+{
+  $agentname = trim($_POST['agentname']);
+}
 
 // Check email
-
+if(empty(trim($_POST['email']))){
+  $email_err ="Agent Email Cannot Be Blank";
+}
+else
+{
+  $email = trim($_POST['email']);
+}
 
 //check mobile no
-
+if(
+  empty
+  (trim
+  ($_POST['mobile'])))
+{
+  $mobile_err ="Agent Name Cannot Be Blank";
+}
+else
+{
+  $mobile = trim($_POST['mobile']);
+}
 
 //check city
+if(empty(trim($_POST['city']))){
+  $city_err ="Agent Name Cannot Be Blank";
+}
+else
+{
+  $city = trim($_POST['city']);
+}
 
 //check password
 if(empty(trim($_POST['password']))){
@@ -71,15 +98,19 @@ if(trim($_POST['password']) != trim($_POST['conpass']) ){
 }
 
 //if were no error , go to add insert into database
-if(empty($agentid_err) &&empty($password_err) && empty($conpass_err)){
-  $sql = "insert into agent (agentid,password) values (? , ?)";
+if(empty($agentid_err) && empty($password_err) && empty($conpass_err) && empty($agentname_err) && empty($email_err) && empty($mob_err) && empty($city_err)){
+  $sql = "insert into agent (agentid,agentname, email, mobile, city, password) values (?, ?, ?, ?, ?,? )";
   $stmt=mysqli_prepare($conn,$sql);
   if($stmt)
   {
-    mysqli_stmt_bind_param($stmt,"ss",$param_agenid,$param_password);
+    mysqli_stmt_bind_param($stmt,"ssssss",$param_agenid,$param_agentname,$param_email,$param_mobile,$param_city,$param_password);
     
     //set parameter
     $param_agenid  = $agentid;
+    $param_agentname = $agentname;
+    $param_email = $email;
+    $param_mobile = $mobile;
+    $param_city = $city;
     $param_password = password_hash($password,PASSWORD_DEFAULT);
 
     // try execute query
@@ -106,7 +137,7 @@ if(empty($agentid_err) &&empty($password_err) && empty($conpass_err)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="css/stylesignup.css">
+     <link rel="stylesheet" href="../css/stylesignup.css">
     <title>Agent Signup
     </title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
@@ -122,7 +153,7 @@ if(empty($agentid_err) &&empty($password_err) && empty($conpass_err)){
         </div>
         <div class="menu">
             <ul>
-                <li><a href="home.html" class="a">HOME</a></li>
+                <li><a href="../home.html" class="a">HOME</a></li>
                 <li><a href="about.php">ABOUT</a></li>
                 <li><a href="contact.php">CONTACT US</a></li>
                 <li><div class="dropdown">
@@ -140,7 +171,7 @@ if(empty($agentid_err) &&empty($password_err) && empty($conpass_err)){
 </header>
 <section>
   <div class="left">
-           <img src="img\bus.png" >
+           <img src="..\img\bus.png" >
   </div>
 
   <div class="right">
@@ -151,25 +182,25 @@ if(empty($agentid_err) &&empty($password_err) && empty($conpass_err)){
                       <input type="text" class="form-control" name="agentid" placeholder="Choose Agent Id">
                      
        </div>
-       <!-- <div class="form-group">
+       <div class="form-group">
                       
         <input type="text" class="form-control" name="agentname" placeholder="Agent Fullname">
        
-</div> -->
-          <!-- <div class="form-group">
+</div>
+          <div class="form-group">
           
-          <input type="email" class="form-control" name="agentemail"  aria-describedby="emailHelp" placeholder="Enter email">
+          <input type="email" class="form-control" name="email"  aria-describedby="emailHelp" placeholder="Enter email">
           <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div> -->
-        <!-- <div class="form-group">
+        </div>
+        <div class="form-group">
          
-          <input type="text" class="form-control" name="agentmobile" placeholder="Enter Mobile No(10 Digits)" minlength="10" maxlength="10">
-        </div> -->
-        <!-- <div class="form-group">
+          <input type="text" class="form-control" name="mobile" placeholder="Enter Mobile No(10 Digits)" minlength="10" maxlength="10">
+        </div>
+        <div class="form-group">
                       
-          <input type="text" class="form-control" id="input agent City" name="agentcity" placeholder="City">
+          <input type="text" class="form-control" id="input agent City" name="city" placeholder="City">
          
-</div> -->
+</div>
 
         <div class="form-group">
          
@@ -180,15 +211,15 @@ if(empty($agentid_err) &&empty($password_err) && empty($conpass_err)){
           
           <input type="password" class="form-control" name="conpass" placeholder="Enter Confirm Password Password">
         </div>
-<!-- 
+
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="tc">
           <label class="form-check-label" for="exampleCheck1">I Agree Term & Condition</label>
-        </div> -->
+        </div>
         <button type="submit" class="btn btnsearch" id="subbtn" >Submit</button>
       </form>
       <div class="form-group">
-        If you already have Account<a href="agentlogin.html"> click here </a> to Signin
+        If you already have Account<a href="agentlogin.php"> click here </a> to Signin
       </div>
       
       </div>
