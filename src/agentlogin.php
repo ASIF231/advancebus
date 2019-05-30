@@ -1,10 +1,25 @@
+<?php
+require_once "config.php";
+
+$username = $password = $agentid;
+$username_err = $password_err = $agentid_err;
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+  // check username
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="css/style.css">
-    <title>Customer Login</title>
+    <title>Agent Login
+    </title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -37,8 +52,12 @@
 
         <div class="right">
           <div class="container">
-            <form action="welcome.php">
-             
+            <form action="welagent.php" method="POST">
+             <div class="form-group">
+                            <label for="agent id" >AGENT ID</label>
+                            <input type="text" class="form-control" id="input agent id" placeholder="Agent Id">
+                           
+             </div>
                 <div class="form-group">
                 <label for="exampleInputEmail1" >Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -54,6 +73,9 @@
               </div>
               <button type="submit" class="btn btnsearch">Submit</button>
             </form>
+            <div class="form-group">
+              If Not have Account<a href="agentsign.html"> click here </a> to signup
+            </div>
             </div>
            
 
@@ -61,6 +83,14 @@
         </div>
     </section>
 </header>
+<div id="my ad" STYLE="margin-left: 25%; position: relative;">
+  <script type="text/javascript" language="javascript">
+      var aax_size='728x90';
+      var aax_pubname = 'asif23-21';
+      var aax_src='302';
+    </script>
+    <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
+  </div>
 
 </body>
 </html>

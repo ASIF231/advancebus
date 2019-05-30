@@ -73,6 +73,14 @@
             </div>
         </section>
     </header>
+    <div id="my ad" STYLE="margin-left: 25%; position: relative;">
+    <script type="text/javascript" language="javascript">
+        var aax_size='728x90';
+        var aax_pubname = 'asif23-21';
+        var aax_src='302';
+      </script>
+      <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
+    </div>
     <!-- <script type="text/javascript" src="js/myjs.js"></script> -->
 </body>
 
