@@ -8,6 +8,7 @@ if(isset($_SESSION['agentid']))
     header("location: welagent.php");
     exit;
 }
+
 require_once "config.php";
 
 $agentid = $password = "";
@@ -27,9 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 if(empty($err))
 {
-    $sql = "SELECT id, agentid, password FROM agent WHERE agentid = ?";
+    $sql = "select id, agentid, password from agent where agentid = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $param_username);
+    mysqli_stmt_bind_param($stmt, "s", $param_agentid);
     $param_agentid = $agentid;
     
     
@@ -38,7 +39,7 @@ if(empty($err))
         mysqli_stmt_store_result($stmt);
         if(mysqli_stmt_num_rows($stmt) == 1)
                 {
-                    mysqli_stmt_bind_result($stmt, $id, $sgentid, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $agentid, $hashed_password);
                     if(mysqli_stmt_fetch($stmt))
                     {
                         if(password_verify($password, $hashed_password))
@@ -50,7 +51,7 @@ if(empty($err))
                             $_SESSION["loggedin"] = true;
 
                             //Redirect user to welcome page
-                            header("location: weiagent.php");
+                            header("location: welagent.php");
                             
                         }
                     }
@@ -108,7 +109,7 @@ if(empty($err))
 
         <div class="right">
           <div class="container">
-            <form action="" method="post">
+            <form action="" method="POST">
              <div class="form-group">
                             <label for="agent id" >AGENT ID</label>
                             <input type="text" class="form-control" name="agentid" id="input agent id" placeholder="Agent Id">

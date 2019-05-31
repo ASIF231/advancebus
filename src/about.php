@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Book My Bus </title>
-    <link rel="stylesheet"  href="css/style.css">
+    <link rel="stylesheet"  href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
 
 </head>
@@ -33,7 +33,7 @@
         </nav>
         <section>
             <div class="left">
-                     <img src="img\bus.png" >
+                     <img src="..\img\bus.png" >
                      
             </div>
 
