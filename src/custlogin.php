@@ -1,81 +1,10 @@
-<?php
-//This script will handle login
-session_start();
-
-// check if the user is already logged in
-if(isset($_SESSION['agentid']))
-{
-    header("location: welagent.php");
-    exit;
-}
-require_once "config.php";
-
-$agentid = $password = "";
-$err = "";
-
-// if request method is post
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    if(empty(trim($_POST['agentid'])) || empty(trim($_POST['password'])))
-    {
-        $err = "Please enter agentid + password";
-    }
-    else{
-        $agentid = trim($_POST['agentid']);
-        $password = trim($_POST['password']);
-    }
-
-
-if(empty($err))
-{
-    $sql = "SELECT id, agentid, password FROM agent WHERE agentid = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $param_username);
-    $param_agentid = $agentid;
-    
-    
-    // Try to execute this statement
-    if(mysqli_stmt_execute($stmt)){
-        mysqli_stmt_store_result($stmt);
-        if(mysqli_stmt_num_rows($stmt) == 1)
-                {
-                    mysqli_stmt_bind_result($stmt, $id, $sgentid, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt))
-                    {
-                        if(password_verify($password, $hashed_password))
-                        {
-                            // this means the password is corrct. Allow user to login
-                            session_start();
-                            $_SESSION["agentid"] = $agentid;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["loggedin"] = true;
-
-                            //Redirect user to welcome page
-                            header("location: weiagent.php");
-                            
-                        }
-                    }
-
-                }
-
-    }
-}    
-
-
-}
-
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="../css/style.css">
-    <title>Agent Login
-    </title>
+    <title>Customer Login</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -108,20 +37,16 @@ if(empty($err))
 
         <div class="right">
           <div class="container">
-            <form action="" method="post">
-             <div class="form-group">
-                            <label for="agent id" >AGENT ID</label>
-                            <input type="text" class="form-control" name="agentid" id="input agent id" placeholder="Agent Id">
-                           
-             <!-- </div>
+            <form action="welcome.php">
+             
                 <div class="form-group">
                 <label for="exampleInputEmail1" >Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div> -->
+              </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -129,9 +54,6 @@ if(empty($err))
               </div>
               <button type="submit" class="btn btnsearch">Submit</button>
             </form>
-            <div class="form-group">
-              If Not have Account<a href="agentsign.php"> click here </a> to signup
-            </div>
             </div>
            
 

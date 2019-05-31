@@ -27,6 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         if(mysqli_stmt_num_rows($stmt) == 1)
         {
           $agentid_err = "This Agent id Already taken ";
+          echo "<script type='text/javascript'>alert(\"$agentid_err\");</script>";
         }
         
         else{
