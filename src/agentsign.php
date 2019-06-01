@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $agentid_err ="Agent Id Cannot Be Blank";
   }
   else{
-    $sql = "select id from agent where agentid = ?";
+    $sql = "select agentid from agent where agentid = ?";
     $stmt=mysqli_prepare($conn,$sql);
 
     if($stmt)
@@ -185,7 +185,7 @@ if(empty($agentid_err) && empty($password_err) && empty($conpass_err) && empty($
        </div>
        <div class="form-group">
                       
-        <input type="text" class="form-control" name="agentname" placeholder="Agent Fullname">
+        <input type="text" class="form-control" name="agentname" placeholder="Agent name">
        
 </div>
           <div class="form-group">

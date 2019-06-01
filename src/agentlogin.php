@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 if(empty($err))
 {
-    $sql = "select id, agentid, password from agent where agentid = ?";
+    $sql = "select agentid, password from agent where agentid = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $param_agentid);
     $param_agentid = $agentid;
@@ -39,7 +39,7 @@ if(empty($err))
         mysqli_stmt_store_result($stmt);
         if(mysqli_stmt_num_rows($stmt) == 1)
                 {
-                    mysqli_stmt_bind_result($stmt, $id, $agentid, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $agentid, $hashed_password);
                     if(mysqli_stmt_fetch($stmt))
                     {
                         if(password_verify($password, $hashed_password))
@@ -47,7 +47,7 @@ if(empty($err))
                             // this means the password is corrct. Allow user to login
                             session_start();
                             $_SESSION["agentid"] = $agentid;
-                            $_SESSION["id"] = $id;
+                         
                             $_SESSION["loggedin"] = true;
 
                             //Redirect user to welcome page
