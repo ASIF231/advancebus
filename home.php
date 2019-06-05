@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,10 @@
                         <button class="dropbtn">LOGIN</button>
                         <div class="dropdown-content">
                           <a href="src\custlogin.php">AS CUSTOMER</a>
-                          <a href="src\agentlogin.php">AS AGENT</a>
+                          <a href="src\bookerlogin.php">AS BOOKER</a>
+                          <a href="src\bookerlogin.php">AS OPERATOR</a>
+                          <a href="src\bookerlogin.php">AS conductor</a>
+                          <a href="src\bookerlogin.php">AS ADMIN</a>
                         </div>
                       </div></li>
                 </ul>
@@ -40,8 +44,9 @@
                 <div class="container">
                   <form action="search.php" method="post" class="style">
                 <div>
-                  <input type="text" name="from_place" data-message="Please Enter Origin city" autocomplete="off" class="fplace" placeholder="FROM">
+                  <input type="text" name="from_place" onkeyup="showResult(this.value)" data-message="Please Enter Origin city" autocomplete="off" class="fplace" placeholder="FROM">
                 </div>
+                <div id="livesearch"></div>
                 
                 <div>  
                    <input type="text" name="to_place" placeholder="TO" data-message="Please Enter destiny city" autocomplete="off" class="tplace">
@@ -81,7 +86,7 @@
       </script>
       <script type="text/javascript" language="javascript" src="http://c.amazon-adsystem.com/aax2/assoc.js"></script>
     </div>
-    <!-- <script type="text/javascript" src="js/myjs.js"></script> -->
+    <script type="text/javascript" src="js/myjs.js"></script>
 </body>
 
 </html>
