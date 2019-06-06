@@ -1,4 +1,62 @@
+<?php
+require_once "config.php";
 
+$from = $to = $date= "";
+$err="";
+
+// if request method is post
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
+    if(empty(trim($_POST['from'])) || empty(trim($_POST['to'])) || empty(trim($_POST[date])))
+    {
+        $err = "Please enter agentid + password";
+    }
+    else{
+        $from = trim($_POST['from']);
+        $to = trim($_POST['to']);
+        $date = trim($_POST['date']);
+    }
+
+
+if(empty($err))
+{
+    $sql = "select journeyFrom, journeyTo from route where ";
+
+    //this site
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $param_agentid);
+    $param_agentid = $agentid;
+    
+    
+    // Try to execute this statement
+    if(mysqli_stmt_execute($stmt)){
+        mysqli_stmt_store_result($stmt);
+        if(mysqli_stmt_num_rows($stmt) == 1)
+                {
+                    mysqli_stmt_bind_result($stmt, $agentid, $hashed_password);
+                    if(mysqli_stmt_fetch($stmt))
+                    {
+                        if(password_verify($password, $hashed_password))
+                        {
+                            // this means the password is corrct. Allow user to login
+                            session_start();
+                            $_SESSION["agentid"] = $agentid;
+                         
+                            $_SESSION["loggedin"] = true;
+
+                            //Redirect user to welcome page
+                            header("location: welagent.php");
+                            
+                        }
+                    }
+
+                }
+
+    }
+}    
+
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,33 +100,33 @@
 
             <div class="right">
                 <div class="container">
-                  <form action="search.php" method="post" class="style">
+                  <form  method="post" class="style">
                 <div>
-                  <input type="text" name="from_place" onkeyup="showResult(this.value)" data-message="Please Enter Origin city" autocomplete="off" class="fplace" placeholder="FROM">
+                  <input type="text" name="from" id="from" data-message="Please Enter Origin city" autocomplete="off" class="fplace" placeholder="FROM">
                 </div>
                 <div id="livesearch"></div>
                 
                 <div>  
-                   <input type="text" name="to_place" placeholder="TO" data-message="Please Enter destiny city" autocomplete="off" class="tplace">
+                   <input type="text" name="to" id="to" placeholder="TO" data-message="Please Enter destiny city" autocomplete="off" class="tplace">
                 </div> 
                 <div >
                     <!-- journy date :- -->
-                    <input type="date" name="date" class="date" v placeholder="Journy Date">
+                    <input type="date" name="date" id="date" class="date" placeholder="Journy Date">
                  </div>
 
-                     <div>
+                     <!-- <div>
                    <p style="color:black;">Seats</p>
                     <select class="npas">
-                        <!-- <option value="">No. of Passenger</option> -->
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
+                        <!-- <option value="">No. of Passenger</option> 
+                        <option value="1" name="1">1</option>
+                        <option value="2" name="2">2</option>
+                        <option value="3" name="5">3</option>
+                        <option value="4" name="4">4</option>
+                        <option value="5" name="5">5</option>
+                        <option value="6" name="6">6</option>
                      </select>
                     </div>
-                 
+                  -->
                      <div> 
                          <input type="button" value="SEARCH" class="btnsearch" >
                      </div>
