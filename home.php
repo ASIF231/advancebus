@@ -6,7 +6,7 @@ $err="";
 
 // if request method is post
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    if(empty(trim($_POST['from'])) || empty(trim($_POST['to'])) || empty(trim($_POST[date])))
+    if(empty(trim($_POST['from'])) || empty(trim($_POST['to'])) || empty(trim($_POST['date'])))
     {
         $err = "Please enter agentid + password";
     }
@@ -14,16 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $from = trim($_POST['from']);
         $to = trim($_POST['to']);
         $date = trim($_POST['date']);
+        $msql="SELECT DATE_FORMAT($date, '%Y %m %d')";
+        $date = $msql;
     }
 
 
 if(empty($err))
 {
-    $sql = "select journeyFrom, journeyTo from route where ";
+    $sql = "select *from route where from =?, to= ? ,date=?";
 
-    //this site
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $param_agentid);
+    mysqli_stmt_bind_param($stmt, "sss", $param_from,$param_to,$param_date);
     $param_agentid = $agentid;
     
     
@@ -32,21 +33,11 @@ if(empty($err))
         mysqli_stmt_store_result($stmt);
         if(mysqli_stmt_num_rows($stmt) == 1)
                 {
-                    mysqli_stmt_bind_result($stmt, $agentid, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $from,$to,$date);
                     if(mysqli_stmt_fetch($stmt))
                     {
-                        if(password_verify($password, $hashed_password))
-                        {
-                            // this means the password is corrct. Allow user to login
-                            session_start();
-                            $_SESSION["agentid"] = $agentid;
-                         
-                            $_SESSION["loggedin"] = true;
-
-                            //Redirect user to welcome page
-                            header("location: welagent.php");
-                            
-                        }
+                    //Redirect user to welcome page
+                        header("location: booking.php");
                     }
 
                 }
@@ -76,7 +67,7 @@ if(empty($err))
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="home.html" class="a">HOME</a></li>
+                    <li><a href="home.php" class="a">HOME</a></li>
                     <li><a href="src\about.php">ABOUT</a></li>
                     <li><a href="src\contact.php">CONTACT US</a></li>
                     <li><div class="dropdown">
@@ -100,7 +91,7 @@ if(empty($err))
 
             <div class="right">
                 <div class="container">
-                  <form  method="post" class="style">
+                  <form action="booking.php" method="post" class="style" >
                 <div>
                   <input type="text" name="from" id="from" data-message="Please Enter Origin city" autocomplete="off" class="fplace" placeholder="FROM">
                 </div>
@@ -117,7 +108,7 @@ if(empty($err))
                      <!-- <div>
                    <p style="color:black;">Seats</p>
                     <select class="npas">
-                        <!-- <option value="">No. of Passenger</option> 
+                        <option value="">No. of Passenger</option> 
                         <option value="1" name="1">1</option>
                         <option value="2" name="2">2</option>
                         <option value="3" name="5">3</option>
